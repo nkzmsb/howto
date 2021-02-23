@@ -1,3 +1,4 @@
+.vscode/
 log/samplelog.log
 log/__pycache__/
 test/__pycache__/
