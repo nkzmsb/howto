@@ -20,7 +20,9 @@ print("===start: use logging===")
 import logging
 
 # logレベルの設定
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG
+                    , filename="log/basic_log.log" # This kwarg is not necessary when displaying imfomation on the screen
+                    )
 for i in range(5): # 適当な繰り返しの処理を再現
     # 適当な処理・処理時間を再現
     a = i

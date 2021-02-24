@@ -1,5 +1,5 @@
 .vscode/
-log/samplelog.log
+log/basic_log.log
 log/__pycache__/
 test/__pycache__/
 test/pytest/__pycache__/
