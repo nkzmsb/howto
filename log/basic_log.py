@@ -1,4 +1,4 @@
-import logging
+
 import time
 
 # print("===start: not use logging===")
@@ -17,6 +17,8 @@ import time
 #         print("c:{}".format(c))
     
 print("===start: use logging===")
+import logging
+
 # logレベルの設定
 logging.basicConfig(level=logging.INFO)
 for i in range(5): # 適当な繰り返しの処理を再現
