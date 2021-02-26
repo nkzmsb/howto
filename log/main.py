@@ -2,13 +2,13 @@ import setting
 
 set_dic = setting.setting()
 
-if set_dic["MODE"] == "WhereFrom":
+if set_dic["MODE"] in ["WhereFrom", "FromHere"]:
     def main():
         import logging
 
         import module1, module2
 
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.INFO)
         
         module1.f1()
         module1.f2()
