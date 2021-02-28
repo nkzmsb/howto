@@ -6,10 +6,10 @@ if set_dic["MODE"] == "WhereFrom":
     import logging
     def f1():
         if False:
-            logging.debug("debug log!!")
+            logging.info("debug log!!")
     def f2():
         if False:
-            logging.debug("debug log!!")
+            logging.info("debug log!!")
 
 if set_dic["MODE"] == "FromHere":
     import logging
@@ -17,7 +17,7 @@ if set_dic["MODE"] == "FromHere":
     logger.setLevel(logging.DEBUG)
     def f1():
         if False:
-            logger.debug("debug log!!")
+            logger.info("debug log!!")
     def f2():
         if False:
-            logger.debug("debug log!!")
+            logger.info("debug log!!")
