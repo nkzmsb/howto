@@ -27,7 +27,7 @@ if set_dic["MODE"] == "NotBadExample":
     
     logger=logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s\t%(name)-12s\t%(module)s\t%(levelname)-8s\t%(message)s')
+    formatter = logging.Formatter('%(asctime)s\t%(name)-12s\t%(funcName)s\t%(levelname)-8s\t%(message)s')
     handler = logging.StreamHandler()
     handler.setFormatter(formatter)
     logger.addHandler(handler)
