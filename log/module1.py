@@ -14,7 +14,7 @@ if set_dic["MODE"] == "WhereFrom":
 if set_dic["MODE"] == "FromHere":
     import logging
     logger=logging.getLogger(__name__) # 推奨されるloggerの作り方
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.DEBUG) # loggerのレベルを設定
     def f1():
         if False:
             logger.info("debug log!!")
