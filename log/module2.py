@@ -21,3 +21,18 @@ if set_dic["MODE"] == "FromHere":
     def f2():
         if True:
             logger.info("debug log!!")
+            
+if set_dic["MODE"] == "NotBadExample":
+    import logging
+    
+    logger=logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s\t%(name)-12s\t%(module)s\t%(levelname)-8s\t%(message)s')
+    handler = logging.StreamHandler()
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    def product(i):
+        logger.debug({"action" : "check arg"
+                      , "arg" : i
+                      })
+        return i*2.
