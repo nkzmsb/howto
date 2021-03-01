@@ -1,6 +1,7 @@
 .vscode/
 log/basic_log.log
 log/__pycache__/
+log/logfiles/
 test/__pycache__/
 test/pytest/__pycache__/
 test/.pytest_cache/

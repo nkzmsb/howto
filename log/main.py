@@ -34,8 +34,8 @@ if set_dic["MODE"] == "NotBadExample":
         handler.setFormatter(formatter)
         logger.addHandler(handler)
         
-        for i in range(5):
-            time.sleep(1)
+        for i in range(100):
+            time.sleep(.1)
             
             if i>3:
                 logger.warning({"action" : "check counter"

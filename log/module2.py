@@ -24,11 +24,16 @@ if set_dic["MODE"] == "FromHere":
             
 if set_dic["MODE"] == "NotBadExample":
     import logging
+    import logging.handlers
     
     logger=logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s\t%(name)-12s\t%(funcName)s\t%(levelname)-8s\t%(message)s')
-    handler = logging.StreamHandler()
+    handler = logging.handlers.RotatingFileHandler(filename="log/logfiles/mod2.log"
+                                                   , mode="a" # Logを追加していく
+                                                   , maxBytes=1000 # ファイル1つあたりの上限サイズ
+                                                   , backupCount=3 # 古いログファイルをいくつまで残すか
+                                                   )
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     def product(i):
