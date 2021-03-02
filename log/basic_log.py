@@ -30,8 +30,8 @@ for i in range(5): # 適当な繰り返しの処理を再現
     c = a + b
     time.sleep(1)
 
-    # DEBUGモード時の処理
+    # DEBUGレベルの処理
     logging.debug("a:{}, b:{}".format(a,b))
 
-    # INFOモード時の処理
+    # INFOレベルの処理
     logging.info("c:{}".format(c))

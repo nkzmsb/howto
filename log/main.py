@@ -19,7 +19,7 @@ if set_dic["MODE"] in ["WhereFrom", "FromHere"]:
         if False:
             logging.debug("debug log!!")
 
-if set_dic["MODE"] == "NotBadExample":
+elif set_dic["MODE"] == "NotBadExample":
     def main():
         import logging
 
@@ -52,12 +52,10 @@ if set_dic["MODE"] == "NotBadExample":
                          , "counter" : i
                          , "result" : val
                          })
-            
+              
 else:
     def main():
-        pass
-
-
+        print("Pass all")
 
 if __name__ == "__main__":
     main()

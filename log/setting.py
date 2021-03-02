@@ -1,6 +1,6 @@
 
 def setting():
-    set_dic = {"MODE" : "NotBadExample"}
+    set_dic = {"MODE" : "FromHere"}
     # [MODE]
     # "WhereFrom", "FromHere", "NotBadExample"
 
