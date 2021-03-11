@@ -6,17 +6,11 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
-    # level: DEBUG
     formatter: my_default
-    # stream: ext://sys.stdout
 loggers:
-  package1:
+  package1.module1_1:
     level: DEBUG
     handlers: [console]
-    # propagate: no
   package2:
     level: DEBUG
     handlers: [console]
-# root:
-#   level: DEBUG
-#   handlers: [console]
