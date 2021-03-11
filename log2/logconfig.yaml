@@ -1,0 +1,22 @@
+version: 1
+formatters:
+  my_default:
+    # Enter the tab as it is (don't use "\t")
+    format: '%(asctime)s  %(name)-12s %(funcName)s  %(levelname)-8s %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    # level: DEBUG
+    formatter: my_default
+    # stream: ext://sys.stdout
+loggers:
+  package1:
+    level: DEBUG
+    handlers: [console]
+    # propagate: no
+  package2:
+    level: DEBUG
+    handlers: [console]
+# root:
+#   level: DEBUG
+#   handlers: [console]
