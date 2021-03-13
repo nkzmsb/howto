@@ -13,5 +13,5 @@
 - I use Japanese a lot in comments and Wiki, but if you contact me, I will translate it into English.
 
 # Folders
-## log
+## [log](https://github.com/nkzmsb/howto/wiki/log)
 Codes to explane how to use "logging" module which is provided as Standard Library.
