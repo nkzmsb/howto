@@ -1,9 +1,9 @@
 # howto
 ## Purpose of this repo
-- as my own memorandum
-- for sharing with acquaintances
-- for discussions that improve my skills
-- to contribute to the community
+* As my memorandum : 自分の備忘録として
+* Giving back to the community : 助けてもらったコミュニティのために
+* Sharing with my friends and colleagues : 知り合いとの共有
+* To improve my skills : スキルアップのために
 
 ## How to use this repo
 - The main content is [Wiki](https://github.com/nkzmsb/howto/wiki).
