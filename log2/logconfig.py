@@ -76,8 +76,15 @@ def addfilter(logconfig_dic):
     added_dic = logconfig_dic.copy()
     
     # この部分をyamlファイルと付加させる対象にあわせて編集する
-    added_dic["filters"] = {"trace_cut_filter" : {'()': TraceCutFilter}}
-    added_dic['handlers']['console']["filters"] = ['trace_cut_filter']
+    filterinfo_dic = {"trace_cut_filter" : {'()': TraceCutFilter}}
+    
+    added_dic["filters"] = filterinfo_dic
+    
+    # 以下のように、ハンドラへのフィルター付加をここで行うことも可能だが、
+    # 記述が複雑になるので、yamlファイル側でやる方がわかりやすい。
+    # ただし、同じyamlファイルの内容へのフィルタの付け外しを頻繁に行う場合には、
+    # この部分でハンドラへ付加して、load_logconfig_dicのfiltering引数を切り替えるほうが良い。
+    # added_dic['handlers']['console']["filters"] = ['trace_cut_filter']
     
     return added_dic
 

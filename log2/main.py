@@ -34,7 +34,7 @@ if __name__=="__main__":
         
         from logconfig import load_logconfig_dic # own module
         
-        conf_dic = load_logconfig_dic("log2/logconfig.yaml", filtering=False)
+        conf_dic = load_logconfig_dic("log2/logconfig2.yaml", filtering=True)
                          
         logging.config.dictConfig(conf_dic)
     
