@@ -32,9 +32,9 @@ if __name__=="__main__":
         
     elif MODE == "set_file_filter":
         
-        from logconfig import load_logconfig_dic
+        from logconfig import load_logconfig_dic # own module
         
-        conf_dic = load_logconfig_dic("log2/logconfig.yaml",filtering=True)
+        conf_dic = load_logconfig_dic("log2/logconfig.yaml", filtering=False)
                          
         logging.config.dictConfig(conf_dic)
     

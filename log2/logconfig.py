@@ -5,8 +5,8 @@
 # クライアントからはload_logconfig_dic()のみが参照される
 
 
-import ast
 import logging
+import re
 import yaml
 
 # Filterの定義
@@ -16,17 +16,26 @@ class TraceCutFilter(logging.Filter):
     logのメッセージに
         "trace" : True
     の記述があるものをフィルタする
+    
+    一言でデバッグといっても、多くの情報をトレースしたい場合と、
+    ピンポイント部分だけログしたい場合とがあるが、ログレベルはDEBUGしか用意されていない。
+    そこで、前者の場合にはログメッセージに辞書型で{"trace" : True}と記入しておく。
+    このフィルタはその記述があるものをカットする。
     """
+    
     def filter(self, record):
         # TrueをreturnすればLogする
         log_message = record.getMessage()
         
-        # [ToDo]except発生前提のコード良くない
-        try:
-            log_message_dict = ast.literal_eval(log_message)
-            ret = not(log_message_dict["trace"])
-        except:
+        # traceの判定
+        pattern = r"'trace': True"
+        mach = re.search(pattern, log_message, re.IGNORECASE)
+        
+        if mach:
+            ret = False
+        else:
             ret = True
+
         return ret
  
 def addfilter(logconfig_dic):
@@ -66,9 +75,9 @@ def addfilter(logconfig_dic):
     
     added_dic = logconfig_dic.copy()
     
-    # [ToDo]モサイ
-    added_dic["filters"] = {"my_filter" : {'()': TraceCutFilter}}
-    added_dic['handlers']['console']["filters"] = ['my_filter']
+    # この部分をyamlファイルと付加させる対象にあわせて編集する
+    added_dic["filters"] = {"trace_cut_filter" : {'()': TraceCutFilter}}
+    added_dic['handlers']['console']["filters"] = ['trace_cut_filter']
     
     return added_dic
 
