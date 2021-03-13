@@ -6,7 +6,7 @@
 - to contribute to the community
 
 ## How to use this repo
-- The main content is Wiki.
+- The main content is [Wiki](https://github.com/nkzmsb/howto/wiki).
   - Almost all codes in this repo is written to complement the explaination in Wiki.
   - All code is NOT supposed to be used as a module as it is.
 - All code is free to use. Of course, at your own risk.
