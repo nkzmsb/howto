@@ -32,30 +32,11 @@ if __name__=="__main__":
         
     elif MODE == "set_file_filter":
         
-        import ast # [ToDo]別のモジュールインポート必要なのよくない
-        import yaml
+        from logconfig import load_logconfig_dic
         
-        class MyFilter(logging.Filter):
-            def filter(self, record):
-                # TrueをreturnすればLogする
-                log_message = record.getMessage()
-                
-                # [ToDo]except発生前提のコード良くない
-                try:
-                    log_message_dict = ast.literal_eval(log_message)
-                    ret = not(log_message_dict["trace"])
-                except:
-                    ret = True
-                return ret
-        
-        with open("log2/logconfig.yaml", 'r') as yml:
-            yaml_dic = yaml.safe_load(yml)
-        
-        # [ToDo]モサイ
-        yaml_dic["filters"] = {"my_filter" : {'()': MyFilter}}
-        yaml_dic['handlers']['console']["filters"] = ['my_filter']
+        conf_dic = load_logconfig_dic("log2/logconfig.yaml",filtering=True)
                          
-        logging.config.dictConfig(yaml_dic)
+        logging.config.dictConfig(conf_dic)
     
     
     func1_1_1()

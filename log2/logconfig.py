@@ -1,40 +1,34 @@
-# loggingのconfigファイルを辞書型に変換するモジュール
 
-import ast # [ToDo]別のモジュールインポート必要なのよくない
+# loggingのconfigファイルを辞書型に変換するモジュール
+# filterの定義・付加が可能
+# filterの定義や付加のさせ方はユーザーが変更する必要がある
+# クライアントからはload_logconfig_dic()のみが参照される
+
+
+import ast
 import logging
 import yaml
 
-# Filter
+# Filterの定義
 class TraceCutFilter(logging.Filter):
-   def filter(self, record):
-       # TrueをreturnすればLogする
-       log_message = record.getMessage()
-       
-       # [ToDo]except発生前提のコード良くない
-       try:
-           log_message_dict = ast.literal_eval(log_message)
-           ret = not(log_message_dict["trace"])
-       except:
-           ret = True
-       return ret
+    """traceモードをフィルタリング
 
-
-def abc(logconfig_dic):
-    """[summary]
-
-    Parameters
-    ----------
-    logconfig_dic : [type]
-        [description]
-
-    Returns
-    -------
-    [type]
-        [description]
+    logのメッセージに
+        "trace" : True
+    の記述があるものをフィルタする
     """
-    
-    return dec
-
+    def filter(self, record):
+        # TrueをreturnすればLogする
+        log_message = record.getMessage()
+        
+        # [ToDo]except発生前提のコード良くない
+        try:
+            log_message_dict = ast.literal_eval(log_message)
+            ret = not(log_message_dict["trace"])
+        except:
+            ret = True
+        return ret
+ 
 def addfilter(logconfig_dic):
     """configにfilter情報を付加する
     
@@ -81,6 +75,22 @@ def addfilter(logconfig_dic):
 
 
 def load_logconfig_dic(yaml_filepath, filtering=False):
+    """logging.config.dictConfigの引数をyamlファイルから生成
+
+    Parameters
+    ----------
+    yaml_filepath : str
+        元となるyamlファイルのパス
+    filtering : bool, optional
+        filterを付加するかどうか
+        付加の仕方は、addfilter()を自分で編集する必要がある
+        , by default False
+
+    Returns
+    -------
+    dict
+        logging.config.dictConfigの引数となる辞書
+    """
     # yamlファイルを辞書に変換
     with open(yaml_filepath, 'r') as yml:
         yaml_dic = yaml.safe_load(yml)
