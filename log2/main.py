@@ -3,8 +3,6 @@
 
 import logging, logging.config
 
-import yaml
-
 from package1.module1_1 import func1_1_1
 from package1.package1a.module1a_1 import func1a_1_1
 from package2.module2_1 import func2_1
@@ -26,6 +24,8 @@ if __name__=="__main__":
             logger.addHandler(handler)
             logger.setLevel(logging.INFO)
     elif MODE == "set_file":
+        import yaml
+        
         with open("log2/logconfig.yaml", 'r') as yml:
             yaml_dic = yaml.safe_load(yml)
         logging.config.dictConfig(yaml_dic)
@@ -33,6 +33,7 @@ if __name__=="__main__":
     elif MODE == "set_file_filter":
         
         import ast # [ToDo]別のモジュールインポート必要なのよくない
+        import yaml
         
         class MyFilter(logging.Filter):
             def filter(self, record):
