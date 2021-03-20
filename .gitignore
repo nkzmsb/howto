@@ -2,6 +2,7 @@
 log/basic_log.log
 log/__pycache__/
 log/logfiles/
+log2/package0/__pycache__/
 log2/package1/__pycache__/
 log2/package1/package1a/__pycache__/
 log2/package2/__pycache__/
